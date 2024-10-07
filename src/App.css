@@ -1,38 +1,127 @@
-.App {
-  text-align: center;
-}
+.container {
+  background-color: black;
+  border-radius: 15px;
+  padding: 15px 30px;
+  margin: 5px 0;
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
+  color: white;
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+}
+.container:first-child,
+.container h1 {
+  margin: 0;
+}
+
+.container h1 {
+  margin-bottom: 5px;
+}
+
+#button_task1 {
+  background-color: blue;
   color: white;
+  padding: 10px;
+  border: none;
+  cursor: pointer;
+  border-radius: 7px;
+  transition: background-color 0.5s;
+  transition-delay: 0.5s; /* 0.5-секундна затримка */
+  width: 128px;
 }
 
-.App-link {
-  color: #61dafb;
+#button_task1:hover {
+  background-color: green;
 }
 
-@keyframes App-logo-spin {
-  from {
+#button_task1:hover::after {
+  content: "Готово";
+}
+
+#button_task1::after {
+  content: "Натисніть";
+}
+
+.square {
+  width: 128px;
+  height: 128px;
+  background-color: blue;
+}
+
+#square_task2 {
+  transition: transform 0.5s;
+}
+
+#square_task2:hover {
+  transform: scale(1.5) rotate(45deg);
+}
+
+#square_task3 {
+  opacity: 0;
+
+  position: relative;
+  animation: square_task3_animation 1.5s ease 0.3s forwards;
+}
+
+@keyframes square_task3_animation {
+  0% {
+    left: -200px;
+    opacity: 0;
+  }
+  100% {
+    left: 0;
+    opacity: 1;
+  }
+}
+
+#square_task4 {
+  animation: square_task4_animation 3s linear infinite,
+    color_task4_animation 3s infinite;
+}
+
+@keyframes square_task4_animation {
+  0% {
     transform: rotate(0deg);
   }
-  to {
+  100% {
     transform: rotate(360deg);
+  }
+}
+
+@keyframes color_task4_animation {
+  0% {
+    background-color: red;
+  }
+  33% {
+    background-color: green;
+  }
+  66% {
+    background-color: blue;
+  }
+  100% {
+    background-color: red;
+  }
+}
+
+#square_task5 {
+  animation: square_task5_animation 7s ease;
+  background-color: green;
+}
+
+@keyframes square_task5_animation {
+  0% {
+    background-color: red;
+    transform: scale(1) rotate(0deg);
+  }
+  50% {
+    background-color: green;
+    transform: scale(1) rotate(0deg);
+  }
+  75% {
+    transform: scale(2) rotate(90deg);
+  }
+  100% {
+    transform: scale(1) rotate(-90deg);
   }
 }
